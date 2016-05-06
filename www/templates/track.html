@@ -1,0 +1,59 @@
+<ion-view view-title="Track Sensors">
+    <ion-content>
+        <div class="card padding">
+            <h2>Track</h2>
+            <a ng-if="isTracking === false" ng-click="start(5)" class="button button-block button-positive">Start tracking</a>
+            <a ng-if="isTracking === true" ng-click="stop()" class="button button-block button-assertive">Stop tracking</a>
+            <div class="row">
+                <div class="col-33 item-text-wrap">
+                    Temperature
+                </div>
+                <div class="col-66">
+                    <button type="button" class="button button-positive button-outline icon ion-ios-rewind float-left" data-ng-click="chgInp('humanSensor.temperature', -0.5, 15);"></button>                        
+                    <button type="button" class="button button-positive button-outline icon ion-ios-fastforward float-right" data-ng-click="chgInp('humanSensor.temperature', 0.5, 10)"></button>
+                    <div class="fill-middle">
+                        <label class="item item-input">
+                            <input type="tel" class="text-center" ng-model="humanSensor.temperature" placeholder="&deg;C"/>
+                        </label>
+                    </div>                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33 item-text-wrap">
+                    Precipitation
+                </div>
+                <div class="col-66">
+                    <button type="button" class="button button-positive button-outline icon ion-ios-rewind float-left" data-ng-click="chgInp('humanSensor.precipitation', -0.25, 0);"></button>                        
+                    <button type="button" class="button button-positive button-outline icon ion-ios-fastforward float-right" data-ng-click="chgInp('humanSensor.precipitation', 0.25, 0)"></button>
+                    <div class="fill-middle">
+                        <label class="item item-input">
+                            <input type="tel" class="text-center" ng-model="humanSensor.precipitation" placeholder="mm"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div ng-if="isTracking === true" class="card padding">
+            <h2>Track log</h2>
+            <p>Tracking for {{elapsed}} seconds. Collected {{observations}} observations.</p>
+            <div class="list">
+                <div class="item row">
+                    <div class="col-20"><small>Time</small></div>
+                    <div class="col-20 text-right"><small>Lon/Lat</small></div>
+                    <div class="col-20 text-right"><small>Speed</small></div>
+                    <div class="col-20 text-right"><small>Temp</small></div>
+                    <div class="col-20 text-right"><small>Prec</small></div>
+                </div>
+                <div class="item row" ng-repeat="t in trackLog">
+                    <div class="col-20 item-text-wrap">{{t.time| date : 'HH:mm:ss'}}</div>
+                    <div class="col-20 text-right item-text-wrap">{{t.lat| number : 4}}N {{t.lon| number : 4}}E</div>
+                    <div class="col-20 text-right item-text-wrap">{{t.speed| number : 1}} m/s</div>
+                    <div class="col-20 text-right item-text-wrap">{{t.temperature| number : 1}} &deg;C</div>
+                    <div class="col-20 text-right item-text-wrap">{{t.precipitation| number : 2}} mm</div>
+                </div>
+            </div>
+        </div>        
+    </ion-content>
+</ion-view>

@@ -1,30 +1,18 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
+# Netbeans project
 nbproject/
 
-.vscode/
-.DS_Store
-ionic
-
+# Node modules
 node_modules/
 plugins/
 
-*.mode1v3
-*.perspectivev3
-*.pbxuser
-platforms/ios/build
+#Bower components
+www/lib/
 
-platforms/android/build.xml
-platforms/android/local.properties
-platforms/android/gradlew
-platforms/android/gradlew.bat
-platforms/android/gradle
-
-platforms/android/ant-build
-platforms/android/ant-gen
-
-platforms/android/gen
-platforms/android/out
-
-platforms/android/build
+# Platforms
+platforms/android/
+platforms/ios/
+resources/android/
+resources/ios

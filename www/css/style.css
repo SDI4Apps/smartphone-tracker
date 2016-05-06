@@ -1,0 +1,17 @@
+/* Empty. Add your own CSS if you like */
+.fill-middle {
+    overflow: hidden;
+    padding-right: .5em;
+    padding-left: .5em;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.float-left {
+    float: left;   
+}
+
+.float-right {
+    float: right;   
+}
+

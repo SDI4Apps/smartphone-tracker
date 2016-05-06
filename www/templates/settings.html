@@ -1,0 +1,33 @@
+<ion-view view-title="Settings">
+    <ion-content>
+        <div id="logOutput" class="card" ng-if="$root.logOutput !== '' && $root.logOutput !== undefined">
+            <div class="item item-text-wrap assertive stable-bg">
+                <p>
+                    <a class="button button-icon icon button-small ion-close-circled" ng-click="$root.hideLog()"></a>
+                    {{$root.logOutput}}
+                </p>
+            </div>
+        </div>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">URL to SensLog</span>
+                <input type="url" placeholder="Please enter URL to SensLog instance, e.g. http://portal.sdi4apps.eu/SensLog" ng-model="$root.settings.sensLogUrl"> 
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text" placeholder="Please enter SensLog username" ng-model="$root.settings.username">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="Please enter SensLog password" ng-model="$root.settings.password">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Unit identifier</span>
+                <input type="tel" placeholder="Please enter a SensLog unit identifier" ng-model="$root.settings.unitId">
+            </label>
+            <button class="button button-block button-positive" ng-click="saveSettings()">
+                Save settings
+            </button>
+        </div>            
+    </ion-content>
+</ion-view>
